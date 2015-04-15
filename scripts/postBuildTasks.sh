@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 PASSWD=`pwgen -s 8 1`
@@ -11,7 +11,7 @@ echo "$TIMESTAMP => Setting MySQL root password"
 
 echo -n "$TIMESTAMP => Waiting for MySQL to start"
 
-mysql -uroot -e "status" > /dev/null 2>&1
+mysql -uroot -e "status" > /dev/null
 while [[ $? != 0 ]]
 do
 	echo -n "."
