@@ -26,7 +26,7 @@ Run the container:
 
 The root MySQL password will be set up automagically and randomically at startup, to see what password has been set follow the container's logs.
 
-`docker logs -f $container_id 
+`docker logs -f $container_id`
 
 ### PHP Application ###
 
