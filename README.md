@@ -4,11 +4,11 @@ This is *NOT* an official Debian image (nor related to Apache Software Foundatio
 
 This is a full LAMP stack Docker Image based on Debian Stable and running with the latest PHP version provided by [Dotdeb Repositories](https://www.dotdeb.org/tag/php5/), and Percona MySQL Server (for better performances).
 
-Current installed versions:
-	1.  OS: Debian Wheezy
-	2.  PHP: 5.6.7
-	3.  Percona: 5.6.23
-	4.  Apache: 2.2.22
+Current installed versions:  
+    1.  OS: Debian Wheezy  
+    2.  PHP: 5.6.7  
+    3.  Percona: 5.6.23  
+    4.  Apache: 2.2.22  
 
 ## Usage ##
 
