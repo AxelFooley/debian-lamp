@@ -48,3 +48,6 @@ cat << EOF
 EOF
 
 mysqladmin -uroot -p$PASSWD shutdown
+
+# Fix Apache2 "Could not reliably determine the server's fully qualified domain name" warning
+echo "ServerName localhost" > /etc/apache2/conf.d/servername
