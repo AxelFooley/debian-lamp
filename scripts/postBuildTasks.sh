@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 PASSWD=`pwgen -s 8 1`
@@ -7,15 +7,17 @@ PASSWD=`pwgen -s 8 1`
 
 echo "$TIMESTAMP => Setting MySQL root password"
 
-/usr/bin/mysqld_safe > /dev/null 2>&1 &
+/usr/bin/mysqld_safe &> /dev/null &
 
 echo -n "$TIMESTAMP => Waiting for MySQL to start"
 
-mysql -uroot -e "status" > /dev/null
-while [[ $? != 0 ]]
+TEST=1
+while [[ $TEST = 1 ]]
 do
 	echo -n "."
 	sleep 1
+	mysql -uroot -e "status" > /dev/null
+	TEST=$?
 done
 echo
 mysqladmin -u root password $PASSWD
@@ -29,10 +31,10 @@ echo "$TIMESTAMP => Done!"
 cat << EOF
 	+-------------------------------------------------------+
 	|	MySQL root password:				|
-	|		$PASSWD					|
+	|		$PASSWD				|
 	|							|
 	| 	You can connect to this MySQL server with:	|
-	| 	mysql -u root -p$PASSWD				|
+	| 	mysql -u root -p$PASSWD			|
 	|							|
 	|	Pro Tip: Create a .my.cnf 			|
 	|	inside /root and paste this content		|
