@@ -21,6 +21,9 @@ RUN wget -O /root/dotdeb.gpg http://www.dotdeb.org/dotdeb.gpg && apt-key add /ro
 RUN apt-get update
 RUN apt-get -q -y install percona-server-server-5.6 percona-server-client-5.6 percona-toolkit apache2 php5 php5-mysql libapache2-mod-php5 supervisor pwgen
 RUN a2enmod rewrite
+RUN a2enmod php5
+RUN update-rc.d -f apache2 remove
+RUN update-rc.d -f mysql remove
 
 VOLUME  ["/etc/apache2/", "/etc/mysql", "/var/lib/mysql" ]
 
